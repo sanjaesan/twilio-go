@@ -176,10 +176,8 @@ func (c *MessageService) GetMessagesInRange(start time.Time, end time.Time, data
 		panic("start date is after end date")
 	}
 	d := url.Values{}
-	if data != nil {
-		for k, v := range data {
-			d[k] = v
-		}
+	for k, v := range data {
+		d[k] = v
 	}
 	d.Del("DateSent")
 	d.Del("Page") // just in case
@@ -252,7 +250,7 @@ func (c *messageDateIterator) Next(ctx context.Context) (*MessagePage, error) {
 				// we really should not ever hit this case but if we can't parse
 				// a date, better to give you back an error than to give you back
 				// a list of messages that may or may not be in the time range
-				return nil, fmt.Errorf("Couldn't verify the date of message: %#v", message)
+				return nil, fmt.Errorf("twilio: couldn't verify the date of message: %#v", message)
 			}
 			times[i] = message.DateCreated.Time
 		}
