@@ -21,6 +21,12 @@ const userAgent = "twilio-go/" + Version
 // The base URL serving the API. Override this for testing.
 var BaseURL = "https://api.twilio.com"
 
+// ChatBaseURL - The base URL for Twilio Chat.
+var ChatBaseURL = "https://chat.twilio.com"
+
+// ChatVersion of the Twilio API.
+const ChatVersion = "v2"
+
 // The base URL for Twilio Monitor.
 var MonitorBaseURL = "https://monitor.twilio.com"
 
